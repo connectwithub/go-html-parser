@@ -30,6 +30,7 @@ func parseLocalHTML(loc string) []models.Link {
 	if err != nil {
 		log.Fatalf("unable to read file %v, Error: %v", loc, err)
 	}
+	defer file.Close()
 	var fileReader io.Reader = file
 	return parseLinks(&fileReader)
 }
